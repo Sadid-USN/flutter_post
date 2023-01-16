@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:http/http.dart' as http;
 
 class NewsServices {
@@ -15,7 +14,7 @@ class NewsServices {
         final Map<String, dynamic> data = json.decode(
           response.body,
         );
-        print(data['data']);
+
         return (data['data']['children'] as List)
             .map((data) => data['data'])
             .toList();
@@ -23,7 +22,6 @@ class NewsServices {
         throw Exception("Failed to get news");
       }
     } catch (e) {
-      // Handle the error
       print(e);
     }
     return [];

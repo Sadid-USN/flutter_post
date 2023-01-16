@@ -29,7 +29,9 @@ class _HomePageState extends State<HomePage> {
         context,
         listen: false,
       ).flutterNews();
-      setState(() {});
+      setState(() {
+        print('======== UPDATED ========');
+      });
     });
   }
 
