@@ -77,16 +77,16 @@ class _HomePageState extends State<HomePage> {
                                 ups: provider.news[index]['ups'],
                                 selftext: provider.news[index]['selftext'],
                                 title: provider.news[index]['title'],
-                                index: index + 1,
                               );
                             }));
                           },
                           child: CardWidget(
                             title: provider.news[index]['title'],
-                            thumbnail:
-                                provider.news[index]['thumbnail'] == "self"
-                                    ? noImage
-                                    : provider.news[index]['thumbnail'],
+                            thumbnail: provider.news[index]['thumbnail'] ==
+                                        "self" ||
+                                    provider.news[index]['thumbnail'] == null
+                                ? noImage
+                                : provider.news[index]['thumbnail'],
                             index: index + 1,
                           ),
                         );

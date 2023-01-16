@@ -5,13 +5,12 @@ class InfoPage extends StatelessWidget {
   final String title;
   final String selftext;
   final int ups;
-  final int index;
+
   const InfoPage({
     Key? key,
     required this.title,
     required this.selftext,
     required this.ups,
-    required this.index,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {

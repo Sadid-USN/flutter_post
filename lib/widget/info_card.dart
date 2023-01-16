@@ -68,24 +68,6 @@ class InfoCardWidget extends StatelessWidget {
                   ],
                 ),
               ],
-
-              // leading: ClipRRect(
-              //   borderRadius: BorderRadius.circular(12),
-              //   child: SizedBox(
-              //     height: 70,
-              //     width: 70,
-              //     child: CachedNetworkImage(
-              //       key: UniqueKey(),
-              //       imageUrl: thumbnail,
-              //       fit: BoxFit.fill,
-              //       placeholder: (context, url) {
-              //         return const Center(child: LinearProgressIndicator());
-              //       },
-              //       errorWidget: (context, url, error) =>
-              //           Image.asset('assets/images/noimage.png'),
-              //     ),
-              //   ),
-              // ),
             ),
           ),
         ),
