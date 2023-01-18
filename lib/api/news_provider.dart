@@ -21,10 +21,9 @@ class NewsProvider extends ChangeNotifier {
     if (hasConnection) {
       final response = await _newsServices.getFlutterNews();
       _news = response;
-      saveNews();
+      await saveNews();
     } else {
-      // call getSavedNews()
-      getSavedNews();
+      await getSavedNews();
     }
     isLoading = false;
     notifyListeners();
@@ -33,14 +32,18 @@ class NewsProvider extends ChangeNotifier {
   Future<void> saveNews() async {
     final prefs = await SharedPreferences.getInstance();
     prefs.setString('news', jsonEncode(_news));
-
-    print('DATA Successfully SAVED ============>>>');
   }
 
   Future<void> getSavedNews() async {
     final prefs = await SharedPreferences.getInstance();
     _news = jsonDecode(prefs.getString('news')!) ?? [];
-    print('Data Successfully Get From Cache =====================>>>> $_news');
+
+    notifyListeners();
+  }
+
+  Future<void> refreshData() async {
+    await flutterNews();
+
     notifyListeners();
   }
 }
